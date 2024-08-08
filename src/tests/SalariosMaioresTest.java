@@ -1,4 +1,4 @@
-package main.features.salariosMaiores;
+package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import main.features.salariosMaiores.SalariosMaiores;
 import main.utils.DepartamentoEnum;
 import main.utils.Funcionario;
 

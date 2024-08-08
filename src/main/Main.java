@@ -5,9 +5,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import main.features.calculo_impacto.CalculoImpacto;
+import main.features.media_por_cargo.MediaPorCargo;
 import main.features.salariosMaiores.SalariosMaiores;
 import main.utils.CargaDados;
-import main.utils.FormatadorDeLista;
+import main.utils.Formatador;
 import main.utils.Funcionario;
 import main.utils.view.EntradaSaida;
 
@@ -26,11 +27,12 @@ public class Main {
 			switch (opcao) {
 			case 1: {
 				JOptionPane.showMessageDialog(null,
-						FormatadorDeLista.formatarListaDeFuncionarios(SalariosMaiores.listaMaioresSalarios(dados)));
+						Formatador.formatarListaDeFuncionarios(SalariosMaiores.listaMaioresSalarios(dados)));
 				break;
 			}
 			case 2: {
-
+				JOptionPane.showMessageDialog(null, "Média salarial por cargo:\n\n"
+						+ Formatador.formatarMapaDeMediaSalarial(MediaPorCargo.media(dados)));
 				break;
 			}
 			case 3: {

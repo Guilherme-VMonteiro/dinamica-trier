@@ -1,9 +1,11 @@
 package main.utils;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
-public class FormatadorDeLista {
+public class Formatador {
 
 	public static String formatarListaDeFuncionarios(List<Funcionario> funcionarios) {
 
@@ -21,5 +23,16 @@ public class FormatadorDeLista {
 
 		return builder.toString();
 	}
-	
+
+	public static String formatarMapaDeMediaSalarial(Map<DepartamentoEnum, BigDecimal> mapaMediaSalarial) {
+		StringBuilder builder = new StringBuilder();
+
+		for (DepartamentoEnum departamento : DepartamentoEnum.values()) {
+			builder.append(
+					"Departamento: " + departamento + " - Média salarial: R$" + mapaMediaSalarial.get(departamento) + "\n");
+		}
+
+		return builder.toString();
+	}
+
 }

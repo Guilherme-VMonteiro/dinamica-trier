@@ -1,4 +1,4 @@
-package main.features.media_por_cargo;
+package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
