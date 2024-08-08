@@ -14,14 +14,14 @@ import org.junit.jupiter.api.Test;
 import main.utils.DepartamentoEnum;
 import main.utils.Funcionario;
 
-class salariosMaioresTest {
+class SalariosMaioresTest {
 
 	private List<Funcionario> lista;
-	private static salariosMaiores salariosMaiores;
+	private static SalariosMaiores salariosMaiores;
 
 	@BeforeAll
 	static void init() {
-		salariosMaiores = new salariosMaiores();
+		salariosMaiores = new SalariosMaiores();
 	}
 
 	@BeforeEach
@@ -39,7 +39,7 @@ class salariosMaioresTest {
 		lista.add(new Funcionario("Ana Santos", DepartamentoEnum.SUPORTE, new BigDecimal("6000")));
 		lista.add(new Funcionario("José Lima", DepartamentoEnum.QUALIDADE, new BigDecimal("5500")));
 
-		lista = salariosMaiores.listaMaioresSalarios();
+		lista = salariosMaiores.listaMaioresSalarios(lista);
 		
 		assertFalse(lista.contains(null));
 	}
