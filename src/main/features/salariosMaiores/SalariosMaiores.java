@@ -5,12 +5,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import main.utils.CargaDados;
 import main.utils.Funcionario;
 
 public class SalariosMaiores {
 
-	public List<Funcionario> listaMaioresSalarios(List<Funcionario> list) {
+	public static List<Funcionario> listaMaioresSalarios(List<Funcionario> list) {
 
 		return list
 			.stream()
