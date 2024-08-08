@@ -8,7 +8,7 @@ import main.utils.Funcionario;
 
 public class CalculoImpacto {
 
-	public BigDecimal calcularImpactoDeAumento(List<Funcionario> funcionarios) {
+	public static BigDecimal calcularImpactoDeAumento(List<Funcionario> funcionarios) {
 		BigDecimal somaSalario = new BigDecimal(0);
 		BigDecimal porcentagem = new BigDecimal(1.1);
 		somaSalario = funcionarios.stream().map(Funcionario::getSalario).reduce(somaSalario, BigDecimal::add);

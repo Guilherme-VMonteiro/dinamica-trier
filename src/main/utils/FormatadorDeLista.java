@@ -1,5 +1,6 @@
 package main.utils;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,4 +22,5 @@ public class FormatadorDeLista {
 
 		return builder.toString();
 	}
+	
 }

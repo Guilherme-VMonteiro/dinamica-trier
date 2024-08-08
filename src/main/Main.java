@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import main.features.calculo_impacto.CalculoImpacto;
 import main.features.salariosMaiores.SalariosMaiores;
 import main.utils.CargaDados;
 import main.utils.FormatadorDeLista;
@@ -33,7 +34,8 @@ public class Main {
 				break;
 			}
 			case 3: {
-				
+				JOptionPane.showMessageDialog(null,
+						"Impacto do reajuste de 10%: R$" + CalculoImpacto.calcularImpactoDeAumento(dados));
 				break;
 			}
 			case 4: {
