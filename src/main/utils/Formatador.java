@@ -34,5 +34,16 @@ public class Formatador {
 
 		return builder.toString();
 	}
+	
+	public static String formatarMapaDePorcentagemDeFuncionarios(Map<DepartamentoEnum, BigDecimal> mapaFuncionarios) {
+		StringBuilder builder = new StringBuilder();
+
+		for (DepartamentoEnum departamento : DepartamentoEnum.values()) {
+			builder.append(
+					"Departamento: " + departamento + " - Percentual de funcionarios: " + mapaFuncionarios.get(departamento) + "%\n");
+		}
+
+		return builder.toString();
+	}
 
 }

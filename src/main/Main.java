@@ -6,10 +6,12 @@ import javax.swing.JOptionPane;
 
 import main.features.calculo_impacto.CalculoImpacto;
 import main.features.media_por_cargo.MediaPorCargo;
+import main.features.percentual_cada_cargo.PercentualCadaCargo;
 import main.features.salariosMaiores.SalariosMaiores;
 import main.utils.CargaDados;
 import main.utils.Formatador;
 import main.utils.Funcionario;
+import main.utils.MapeiaDados;
 import main.utils.view.EntradaSaida;
 
 public class Main {
@@ -41,6 +43,10 @@ public class Main {
 				break;
 			}
 			case 4: {
+				JOptionPane.showMessageDialog(null,
+						"Percentual de funcionários para cada cargo:\n\n"
+								+ Formatador.formatarMapaDePorcentagemDeFuncionarios(PercentualCadaCargo
+										.quantidadeFuncionarios(new MapeiaDados().mapeiaFuncionariosPorCargo(dados))));
 
 				break;
 			}
