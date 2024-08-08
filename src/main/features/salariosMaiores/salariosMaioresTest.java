@@ -29,9 +29,9 @@ class salariosMaioresTest {
 		lista = new ArrayList<>();
 	}
 
-	@DisplayName("Se possuir um nulo, ele deverá pular e considerar o próximo")
+	@DisplayName("Se possuir um nulo, ele deverá não deverá considerar")
 	@Test
-	void naoConsiderNulo() {
+	void seHouverUmNuloNaoConsiderar() {
 
 		lista.add(new Funcionario("João Silva", DepartamentoEnum.ADMINISTRACAO, new BigDecimal("9000")));
 		lista.add(new Funcionario("Maria Oliveira", DepartamentoEnum.RH, new BigDecimal("8000")));
@@ -42,7 +42,5 @@ class salariosMaioresTest {
 		lista = salariosMaiores.listaMaioresSalarios();
 		
 		assertFalse(lista.contains(null));
-		//assertTrue(lista.contains("João Lima"));
 	}
-
 }
