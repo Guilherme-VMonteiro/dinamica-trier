@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JOptionPane;
 
+import main.features.salariosMaiores.SalariosMaiores;
 import main.utils.view.EntradaSaida;
 
 public class Main {
@@ -13,10 +14,12 @@ public class Main {
 		do {
 
 			opcao = EntradaSaida.coletaOpcaoMenu();
+			
+			
 
 			switch (opcao) {
 				case 1: {
-//					JOptionPane.showMessageDialog(null, );
+					JOptionPane.showMessageDialog(null, SalariosMaiores.listaMaioresSalarios(null));
 					break;
 				}
 				case 2: {
