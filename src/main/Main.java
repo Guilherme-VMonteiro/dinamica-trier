@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import main.features.calculo_impacto.CalculoImpacto;
+import main.features.maior_orcamento.MaiorOrcamento;
 import main.features.maiormedia.MaiorMedia;
 import main.features.media_por_cargo.MediaPorCargo;
 import main.features.percentual_cada_cargo.PercentualCadaCargo;
@@ -29,50 +30,49 @@ public class Main {
 			opcao = EntradaSaida.coletaOpcaoMenu();
 
 			switch (opcao) {
-			case 1: {
-				JOptionPane.showMessageDialog(null, "Os 10 maiores saláros:\n\n" + 
-						Formatador.formatarListaDeFuncionarios(SalariosMaiores.listaMaioresSalarios(dados)));
-				break;
-			}
-			case 2: {
-				JOptionPane.showMessageDialog(null, "Média salarial por cargo:\n\n"
-						+ Formatador.formatarMapaDeMediaSalarial(MediaPorCargo.media(dados)));
-				break;
-			}
-			case 3: {
-				JOptionPane.showMessageDialog(null,
-						"Impacto do reajuste de 10%: R$" + CalculoImpacto.calcularImpactoDeAumento(dados));
-				break;
-			}
-			case 4: {
-				JOptionPane.showMessageDialog(null,
-						"Percentual de funcionários para cada cargo:\n\n"
-								+ Formatador.formatarMapaDePorcentagemDeFuncionarios(PercentualCadaCargo
-										.quantidadeFuncionarios(new MapeiaDados().mapeiaFuncionariosPorCargo(dados))));
-				break;
-			}
-			case 5: {
-				JOptionPane.showMessageDialog(null, "Relatório geral de cada cargo:\n\n"
-						+ Relatorio.gerarRelatorio(new MapeiaDados().mapeiaFuncionariosPorCargo(dados)));
-				break;
-			}
-			case 6: {
-
-				break;
-			}
-			case 7: {
-				JOptionPane.showMessageDialog(null, "Departamento com maior média salarial:\n\n"
-						+ MaiorMedia.encontrarDepartamentoComMaiorMedia(MediaPorCargo.media(dados)));
-				break;
-			}
-			case 8: {
-				// SAIR
-				break;
-			}
-
-			default: {
-				JOptionPane.showMessageDialog(null, "Opcão inválida, tente novamente!");
-			}
+				case 1: {
+					JOptionPane.showMessageDialog(null, "Os 10 maiores saláros:\n\n"
+							+ Formatador.formatarListaDeFuncionarios(SalariosMaiores.listaMaioresSalarios(dados)));
+					break;
+				}
+				case 2: {
+					JOptionPane.showMessageDialog(null, "Média salarial por cargo:\n\n"
+							+ Formatador.formatarMapaDeMediaSalarial(MediaPorCargo.media(dados)));
+					break;
+				}
+				case 3: {
+					JOptionPane.showMessageDialog(null,
+							"Impacto do reajuste de 10%: R$" + CalculoImpacto.calcularImpactoDeAumento(dados));
+					break;
+				}
+				case 4: {
+					JOptionPane.showMessageDialog(null,
+							"Percentual de funcionários para cada cargo:\n\n"
+									+ Formatador.formatarMapaDePorcentagemDeFuncionarios(PercentualCadaCargo
+											.quantidadeFuncionarios(new MapeiaDados().mapeiaFuncionariosPorCargo(dados))));
+					break;
+				}
+				case 5: {
+					JOptionPane.showMessageDialog(null, "Relatório geral de cada cargo:\n\n"
+							+ Relatorio.gerarRelatorio(new MapeiaDados().mapeiaFuncionariosPorCargo(dados)));
+					break;
+				}
+				case 6: {
+					JOptionPane.showMessageDialog(null, "Departamento com maior orçamento:\n\n" + MaiorOrcamento
+							.encontrarDepartamentoComMaiorOrcamento(new MapeiaDados().mapeiaFuncionariosPorCargo(dados)));
+					break;
+				}
+				case 7: {
+					JOptionPane.showMessageDialog(null, "Departamento com maior média salarial:\n\n"
+							+ MaiorMedia.encontrarDepartamentoComMaiorMedia(MediaPorCargo.media(dados)));
+					break;
+				}
+				case 8: {
+					break;
+				}
+				default: {
+					JOptionPane.showMessageDialog(null, "Opcão inválida, tente novamente!");
+				}
 			}
 
 		} while (opcao != 8);

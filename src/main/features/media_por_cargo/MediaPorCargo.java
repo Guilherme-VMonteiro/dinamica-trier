@@ -11,10 +11,11 @@ import main.utils.Funcionario;
 import main.utils.MapeiaDados;
 
 public class MediaPorCargo {
-	
+
 	public static Map<DepartamentoEnum, BigDecimal> media(List<Funcionario> listaFuncionarios) {
-		
-		Map<DepartamentoEnum, List<Funcionario>> mapaFuncionarios = new MapeiaDados().mapeiaFuncionariosPorCargo(listaFuncionarios);
+
+		Map<DepartamentoEnum, List<Funcionario>> mapaFuncionarios = new MapeiaDados()
+				.mapeiaFuncionariosPorCargo(listaFuncionarios);
 		Map<DepartamentoEnum, BigDecimal> mapaMedias = new HashMap<>();
 
 		for (DepartamentoEnum iterador : DepartamentoEnum.values()) {
@@ -25,8 +26,7 @@ public class MediaPorCargo {
 			List<Funcionario> funcionarios = mapaFuncionarios.get(iterador);
 
 			for (Funcionario func : funcionarios) {
-				BigDecimal salarioAtual = mapaMedias.get(iterador);
-				mapaMedias.put(iterador, salarioAtual.add(func.getSalario()));
+				mapaMedias.put(iterador, mapaMedias.get(iterador).add(func.getSalario()));
 			}
 		}
 
