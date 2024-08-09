@@ -28,40 +28,58 @@ public class Relatorio {
 		return builder.toString();
 	}
 
-	private static BigDecimal coletaMaiorSalario(List<Funcionario> funcionarios) {
-		return BigDecimal.valueOf(funcionarios.stream().map(funcionario -> funcionario.getSalario())
-				.mapToDouble(salario -> salario.doubleValue()).max().orElse(0)).setScale(2, RoundingMode.HALF_EVEN);
+	public static BigDecimal coletaMaiorSalario(List<Funcionario> funcionarios) {
+		return BigDecimal
+				.valueOf(funcionarios.stream().map(funcionario -> funcionario.getSalario())
+						.mapToDouble(salario -> salario.doubleValue()).max().orElse(0))
+				.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	private static BigDecimal coletaMenorSalario(List<Funcionario> funcionarios) {
-		return BigDecimal.valueOf(funcionarios.stream().map(funcionario -> funcionario.getSalario())
-				.mapToDouble(salario -> salario.doubleValue()).min().orElse(0)).setScale(2, RoundingMode.HALF_EVEN);
+	public static BigDecimal coletaMenorSalario(List<Funcionario> funcionarios) {
+		return BigDecimal
+				.valueOf(funcionarios.stream().map(funcionario -> funcionario.getSalario())
+						.mapToDouble(salario -> salario.doubleValue()).min().orElse(0))
+				.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	private static BigDecimal coletaMediaDeSalario(List<Funcionario> funcionarios) {
+	public static BigDecimal coletaMediaDeSalario(List<Funcionario> funcionarios) {
 		return BigDecimal
 				.valueOf(funcionarios.stream().map(funcionario -> funcionario.getSalario())
 						.mapToDouble(salario -> salario.doubleValue()).average().orElse(0))
 				.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	private static BigDecimal coletaMedianaSalarios(List<Funcionario> funcionarios) {
+	public static BigDecimal coletaMedianaSalarios(List<Funcionario> funcionarios) {
 
-		if (funcionarios.size() % 2 == 0) {
+		if (funcionarios.size() >= 2) {
+			if (funcionarios.size() % 2 == 0) {
+				if (funcionarios.size() == 2) {
+					return funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
+							.collect(Collectors.toList()).get(0)
+							.add(funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
+									.collect(Collectors.toList()).get(1))
+							.divide(BigDecimal.valueOf(2), 2, RoundingMode.HALF_EVEN);
+
+				}
+				return funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
+						.collect(Collectors.toList()).get(((funcionarios.size() - 1) / 2))
+						.add(funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
+								.collect(Collectors.toList()).get(((funcionarios.size() - 1) / 2) + 1))
+						.divide(BigDecimal.valueOf(2), 2, RoundingMode.HALF_EVEN);
+			}
 
 			return funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
-					.collect(Collectors.toList()).get(((funcionarios.size() - 1) / 2))
-					.add(funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
-							.collect(Collectors.toList()).get(((funcionarios.size() - 1) / 2) + 1))
-					.divide(BigDecimal.valueOf(2), 2, RoundingMode.HALF_EVEN);
+					.collect(Collectors.toList()).get((funcionarios.size() - 1) / 2)
+					.setScale(2, RoundingMode.HALF_EVEN);
 
-		} else {
-			return funcionarios.stream().map(funcionario -> funcionario.getSalario()).sorted()
-					.collect(Collectors.toList()).get((funcionarios.size() - 1) / 2);
 		}
+
+		return funcionarios.isEmpty() ? BigDecimal.ZERO
+				: funcionarios.get(0).getSalario().setScale(2, RoundingMode.HALF_EVEN);
+
 	}
 
-	private static BigDecimal coletaModaSalarios(List<Funcionario> funcionarios) {
+	public static BigDecimal coletaModaSalarios(List<Funcionario> funcionarios) {
 		Map<BigDecimal, Integer> mapaFrequencia = new HashMap<BigDecimal, Integer>();
 
 		for (Funcionario funcionario : funcionarios) {

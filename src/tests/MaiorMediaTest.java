@@ -31,7 +31,7 @@ class MaiorMediaTest {
 		funcionarios.add(func3);
 		funcionarios.add(func4);
 
-		DepartamentoEnum resultado = MaiorMedia.encontrarDepartamentoComMaiorMedia(MediaPorCargo.media(funcionarios));
+		DepartamentoEnum resultado = new MaiorMedia().encontrarDepartamentoComMaiorMedia(MediaPorCargo.media(funcionarios));
 		
 		Assertions.assertEquals(DepartamentoEnum.ADMINISTRACAO, resultado);
 		

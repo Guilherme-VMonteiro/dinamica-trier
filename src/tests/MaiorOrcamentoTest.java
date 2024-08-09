@@ -32,7 +32,7 @@ class MaiorOrcamentoTest {
 		mapaDeFuncionarios.put(DepartamentoEnum.RH, new ArrayList<>(Arrays.asList(func2)));
 		mapaDeFuncionarios.put(DepartamentoEnum.DESENVOLVIMENTO, new ArrayList<>(Arrays.asList(func3)));
 
-		DepartamentoEnum resultado = MaiorOrcamento.encontrarDepartamentoComMaiorOrcamento(mapaDeFuncionarios);
+		DepartamentoEnum resultado = new MaiorOrcamento().encontrarDepartamentoComMaiorOrcamento(mapaDeFuncionarios);
 
 		Assertions.assertEquals(DepartamentoEnum.ADMINISTRACAO, resultado);
 	}

@@ -21,7 +21,8 @@ class PercentualCadaCargoTest {
 		
 		PercentualCadaCargo percentualCadaCargo = new PercentualCadaCargo();
 		Map<DepartamentoEnum, BigDecimal> retorno = percentualCadaCargo.quantidadeFuncionarios(new MapeiaDados().mapeiaFuncionariosPorCargo(new CargaDados().getListaFuncionarios()));
-		assertEquals("{ADMINISTRACAO=17.143, DESENVOLVIMENTO=17.143, RH=17.143, QUALIDADE=15.714, VENDAS=15.714, SUPORTE=17.143}", retorno.toString());
+		
+		assertEquals("{RH=17.143, DESENVOLVIMENTO=17.143, VENDAS=15.714, QUALIDADE=15.714, ADMINISTRACAO=17.143, SUPORTE=17.143}", retorno.toString());
 	}
 
 }
