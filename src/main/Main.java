@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import main.features.calculo_impacto.CalculoImpacto;
+import main.features.maiormedia.MaiorMedia;
 import main.features.media_por_cargo.MediaPorCargo;
 import main.features.percentual_cada_cargo.PercentualCadaCargo;
 import main.features.salariosMaiores.SalariosMaiores;
@@ -47,7 +48,6 @@ public class Main {
 						"Percentual de funcionários para cada cargo:\n\n"
 								+ Formatador.formatarMapaDePorcentagemDeFuncionarios(PercentualCadaCargo
 										.quantidadeFuncionarios(new MapeiaDados().mapeiaFuncionariosPorCargo(dados))));
-
 				break;
 			}
 			case 5: {
@@ -59,11 +59,12 @@ public class Main {
 				break;
 			}
 			case 7: {
-
+				JOptionPane.showMessageDialog(null, "Departamento com maior média salarial:\n\n"
+						+ MaiorMedia.encontrarDepartamentoComMaiorMedia(MediaPorCargo.media(dados)));
 				break;
 			}
 			case 8: {
-
+				//SAIR
 				break;
 			}
 

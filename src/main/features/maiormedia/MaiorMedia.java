@@ -7,8 +7,7 @@ import main.utils.DepartamentoEnum;
 
 public class MaiorMedia {
 
-
-	    public DepartamentoEnum encontrarDepartamentoComMaiorMedia(Map<DepartamentoEnum, BigDecimal> mapaMedias) {
+	    public static DepartamentoEnum encontrarDepartamentoComMaiorMedia(Map<DepartamentoEnum, BigDecimal> mapaMedias) {
 	        DepartamentoEnum departamentoComMaiorMedia = null;
 	        BigDecimal maiorMedia = BigDecimal.ZERO;
 
@@ -21,7 +20,4 @@ public class MaiorMedia {
 
 	        return departamentoComMaiorMedia;
 	    }
-	
-
-
 }
