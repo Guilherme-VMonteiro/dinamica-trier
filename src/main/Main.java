@@ -8,6 +8,7 @@ import main.features.calculo_impacto.CalculoImpacto;
 import main.features.maiormedia.MaiorMedia;
 import main.features.media_por_cargo.MediaPorCargo;
 import main.features.percentual_cada_cargo.PercentualCadaCargo;
+import main.features.relatorios_por_cargo.Relatorio;
 import main.features.salariosMaiores.SalariosMaiores;
 import main.utils.CargaDados;
 import main.utils.Formatador;
@@ -29,7 +30,7 @@ public class Main {
 
 			switch (opcao) {
 			case 1: {
-				JOptionPane.showMessageDialog(null,
+				JOptionPane.showMessageDialog(null, "Os 10 maiores saláros:\n\n" + 
 						Formatador.formatarListaDeFuncionarios(SalariosMaiores.listaMaioresSalarios(dados)));
 				break;
 			}
@@ -51,7 +52,8 @@ public class Main {
 				break;
 			}
 			case 5: {
-
+				JOptionPane.showMessageDialog(null, "Relatório geral de cada cargo:\n\n"
+						+ Relatorio.gerarRelatorio(new MapeiaDados().mapeiaFuncionariosPorCargo(dados)));
 				break;
 			}
 			case 6: {
@@ -64,7 +66,7 @@ public class Main {
 				break;
 			}
 			case 8: {
-				//SAIR
+				// SAIR
 				break;
 			}
 
